@@ -259,6 +259,15 @@
         <section class="productView-details {{#if product.options.length '>' 0}} productView--has-options {{/if}}  {{# filter product.custom_fields 'Custom Letters or Numbers Available' property='name'}} productView-hide-border{{/filter}}">
 
             {{#filter product.custom_fields 'order_by_phone_only' property='name' }}
+            <div class="productView-price">
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{> components/products/price price=../product.price schema_org=schema}}
+                {{else}}
+                hit2
+                    {{> components/common/login-for-pricing}}
+                {{/or}}
+            </div>
+
               <div class="alertBox alertBox--error">
                 <div class="alertBox-column alertBox-icon">
                     <icon glyph="ic-error" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
