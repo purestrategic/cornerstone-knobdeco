@@ -63,13 +63,7 @@
         <meta name="ahrefs-site-verification" content="978a1357907448f395bceb571445af6d8f591117a55084d30d62ad1d98b5f5d8">
     
         <script type="text/javascript">
-            {{#if page_type '===' 'category'}}
-                var klevu_page_meta = {
-                    'pageType': "category",
-                    'categoryName':'{{#each breadcrumbs}}{{#unless @first}}{{name}}{{#unless @last}};{{/unless}}{{/unless}}{{/each}}',
-                    'categoryUrl': '{{category.url}}',
-                };
-            {{/if}}
+
         {{#if page_type '===' 'product'}}
             var klevu_page_meta  = {
                 "pageType": "pdp",
@@ -89,43 +83,12 @@
                
             {{/if}}
         {{/if}}
-        {{#if page_type '===' 'cart'}}
-            let klbCartRecords = [];
-            fetch('/api/storefront/carts/{{cart_id}}?include=lineItems.physicalItems.options,lineItems.digitalItems.options',
-                {credentials: 'include'}
-            ).then(function (response) {
-                    return response.json();
-                })
-            .then(function (cartData) {
-                if (!cartData || !cartData.lineItems) {
-                    return;
-                }
-                let klbCartLineItems = cartData.lineItems;
-                for (let klbIndex in klbCartLineItems) {
-                    let klbItemTypeRows = klbCartLineItems[klbIndex];
-                    if (!klbItemTypeRows.length) {
-                        return;
-                    }
-                    for (let klbItemRow in klbItemTypeRows) {
-                        klbCartRecords.push({
-                            'itemId': klbItemTypeRows[klbItemRow]['options'].length
-                                ? klbItemTypeRows[klbItemRow]['productId'] + '-variantid_' + klbItemTypeRows[klbItemRow]['variantId']
-                                : klbItemTypeRows[klbItemRow]['productId'],
-                            'itemGroupId': klbItemTypeRows[klbItemRow]['productId'],
-                        });
-                    }
-                }
-            });
-            var klevu_page_meta = {
-                'pageType': "cart",
-                'cartRecords': klbCartRecords
-            };
-        {{/if}}
+        
 </script>
 <!-- Include Klevu JavaScript Library -->
-        <script src="https://js.klevu.com/core/v2/klevu.js"></script>
-        <script src="https://js.klevu.com/recs/v2/klevu-recs.js"></script>
-<script type="text/javascript">
+        <script defer src="https://js.klevu.com/core/v2/klevu.js"></script>
+        <script defer src="https://js.klevu.com/recs/v2/klevu-recs.js"></script>
+<script defer type="text/javascript">
     klevu.interactive(function () {
   var options = {
       powerUp: {
@@ -175,7 +138,7 @@
             }
         </script>
         <script async defer src="{{cdn 'assets/dist/theme-bundle.main.js' resourceHint='preload' as='script'}}" onload="onThemeBundleMain()"></script>
-        <script type="text/javascript" charset="utf-8" src="https://js.klevu.com/klevu-js-v1/js/klevu-bc-script.js?klevuapi=klevu-159068285395812185&lang=en"></script>
+        <script defer type="text/javascript" charset="utf-8" src="https://js.klevu.com/klevu-js-v1/js/klevu-bc-script.js?klevuapi=klevu-159068285395812185&lang=en"></script>
        
         {{{footer.scripts}}}
 
