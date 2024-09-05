@@ -41,6 +41,15 @@
       }
     }
 
+    &-btn-long {
+      width: 162px;
+    }
+
+    &-btn-wrap {
+      display: flex;
+      gap: 30px;
+    }
+
     &-content {
       padding: 30px;
       background: $white;
