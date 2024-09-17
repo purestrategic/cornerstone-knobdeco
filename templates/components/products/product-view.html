@@ -388,10 +388,8 @@
                 {{/if}}
     
     
-    
-                {{#if product.sku '==' 'suga-LIN-X60-1740' }}
-                purchase:
-                {{/if}}
+                {{#filter product.custom_fields 'configurator_link' property='name'}}
+                {{else}}
                 <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
                       data-cart-item-add>
                     <input type="hidden" name="action" value="add">
@@ -428,6 +426,7 @@
                         {{/if}}
                     {{/if}}
                 </form>
+                {{/filter}}
     
             </div>
             {{/filter}}
@@ -471,9 +470,11 @@
                 {{#unless name '===' ''}}
                 {{#unless name '===' 'includes_amazon'}}
                 {{#unless name '===' 'order_by_phone_only'}}
+                {{#unless name '===' 'configurator_link'}}
                     <li class="productSpecifications__item">
                         <p><strong>{{name}}:</strong> {{value}}</p>
                     </li>
+                {{/unless}}
                 {{/unless}}
                 {{/unless}}
                 {{/unless}}
