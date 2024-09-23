@@ -46,11 +46,25 @@ gql: "query GenerateProductQuery($productId: Int!) {
     <div itemscope itemtype="http://schema.org/Product" class="product__wrap">
         {{> components/products/product-view schema=true  }}
 
+        <div class="klevu-recs" id="k-4b3f55e4-3e7b-4811-9a66-fec4bd00f1f2"></div>
+        <style>
+            .kuRECSContainer .kuRECSResultsInner a.kuRECSTitle {
+                white-space: normal !important;
+                padding-left: 0 !important;
+            }
+        </style>
 
-
-       
-
-        <div class="klevu-recs" id="k-ea3653d8-08b2-4f92-888b-cbc7b0776280"></div>
+        <div class="productSpecifications__shipping">
+            <h2 class="productSpecifications__shipping--title">Free Shipping on Purchases Over $39.99</h2>
+            <p class="productSpecifications__message">
+                {{#if cart.sub_total.value '>=' 50}}
+                    Your cart currently qualifies for free shipping!
+                {{else}}
+                    Spend only ${{toFixed (subtract 39.99 cart.sub_total.value) 2 }} more to qualify!
+                {{/if}}
+            </p>
+        </div>
+        
 
 
         <section class="productSimilar">

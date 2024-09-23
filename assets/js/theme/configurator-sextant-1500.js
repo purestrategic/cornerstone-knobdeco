@@ -630,7 +630,7 @@ export default class Configurator extends PageManager {
 
   bindListeners() {
     // Bind testing button
-    document.getElementById('test-fill-all').addEventListener('click', this.handleTestButton);
+    // document.getElementById('test-fill-all').addEventListener('click', this.handleTestButton);
 
     // Bind input listeners
     document.getElementById('grip-type-selector').addEventListener('change', this.handleGripTypeChange);

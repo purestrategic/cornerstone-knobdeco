@@ -440,7 +440,7 @@
             <div class="productView-configurator">
                 <p style="margin-bottom: 5px;"><strong>This product is part of a set! Use the configurator below ensure you have all you need:</strong></p>
                 <a href="{{value}}" class="button button--primary button--large button--fullWidth">Configure My Set</a>
-                <p>Don't want to use the configurator? Call <a style="text-decoration: underline;" href="tel:8885662748">customer service</a> to make your custom order.</p>
+                <p style="margin-bottom: 0;">Don't want to use the configurator? Call <a style="text-decoration: underline;" href="tel:8885662748">customer service</a> to make your custom order.</p>
             </div>
             {{/filter}}
             {{{snippet 'product_details'}}}
@@ -471,6 +471,7 @@
                 {{#unless name '===' 'includes_amazon'}}
                 {{#unless name '===' 'order_by_phone_only'}}
                 {{#unless name '===' 'configurator_link'}}
+                {{#unless name '===' 'hide_add_to_cart'}}
                     <li class="productSpecifications__item">
                         <p><strong>{{name}}:</strong> {{value}}</p>
                     </li>
@@ -481,23 +482,10 @@
                 {{/unless}}
                 {{/unless}}
                 {{/unless}}
+                {{/unless}}
             {{/each}}
         </ul>
     </section>
-    
-    <!-- <div class="productSpecifications__shipping">
-        <h2 class="productSpecifications__shipping--title">FREE SHIPPING in the 48 Contiguous United States</h2>
-    </div> -->
-    <div class="productSpecifications__shipping">
-        <h2 class="productSpecifications__shipping--title">Free Shipping on Purchases Over $39.99</h2>
-        <p class="productSpecifications__message">
-            {{#if cart.sub_total.value '>=' 50}}
-                Your cart currently qualifies for free shipping!
-            {{else}}
-                Spend only ${{toFixed (subtract 39.99 cart.sub_total.value) 2 }} more to qualify!
-            {{/if}}
-        </p>
-    </div>
     
     <div id="previewModal" class="modal modal--large" data-reveal>
         <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
