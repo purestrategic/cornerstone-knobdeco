@@ -161,12 +161,11 @@
             <section class="account-sidebar-block">
                 <h3 class="account-heading">{{lang 'account.orders.details.actions'}}</h3>
                 <div class="order-details-info">
+                    <p>Check the box next to each product you'd like to reorder in the list above.</p>
                     <form class="account-reorder-form" action="{{order.reorder_url}}" method="post" data-account-reorder-form>
                         <input type="hidden" name="orderid" value="{{order.id}}">
                         {{#each order.items}}
-                            {{#if show_reorder}}
-                                <input type="hidden" name="reorderitem[{{order_product_id}}]">
-                            {{/if}}
+                            <input type="hidden" name="reorderitem[{{order_product_id}}]">
                         {{/each}}
                         <input type="submit" class="button" value="{{lang 'account.orders.details.reorder'}}">
                     </form>

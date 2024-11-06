@@ -33,7 +33,11 @@
                     </g>
                   </svg>
             </a>
-            <a href="/login.php" class="main-nav__desktop-top-link">
+            {{#if customer}} 
+              <a href="/account.php" class="main-nav__desktop-top-link">
+            {{else}} 
+              <a href="/login.php"class="main-nav__desktop-top-link"> 
+            {{/if}}
                 <svg id="account-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.136" height="27" viewBox="0 0 24.136 27">
                     <defs>
                       <clipPath id="clip-path-account">
