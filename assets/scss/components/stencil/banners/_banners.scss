@@ -32,3 +32,82 @@
         margin-top: spacing("single");
     }
 }
+
+
+.tree-banner {
+  position: relative;
+
+  @media only screen and (min-width: 900px) {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  &__btn {
+    display: block !important;
+    width: max-content;
+    margin: 0 auto;
+
+    @media only screen and (min-width: 900px) {
+      margin: 0;
+    }
+  }
+
+  &__content {
+    font-family: interstate, sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: $black;
+    text-align: center;
+    text-shadow: 0 3px 6px #00000029;
+
+    @media only screen and (min-width: 900px) {
+      text-align: left;
+      max-width: 579px;
+    }
+  }
+  
+  &__content-wrap {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__img-desktop {
+    display: none;
+
+    @media only screen and (min-width: 900px){
+      display: block;
+      width: 100%;
+      max-width: 1200px;
+    }
+  }
+
+  &__img-mobile {
+    width: 100%;
+
+    @media only screen and (min-width: 900px){
+      display: none;
+    }
+  }
+  
+  &__title {
+    margin-bottom: 10px;
+    font-family: interstate-condensed, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0;
+    color: #b21616;
+    text-align: center;
+    text-shadow: 0 3px 6px #00000029;
+
+    @media only screen and (min-width: 900px) {
+      text-align: left;
+    }
+
+  }
+}
