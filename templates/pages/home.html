@@ -20,7 +20,7 @@ categories: true
     {{/each}}
 
 <div class="main full">
-    {{#or (if (moment "today" "dddd") "==" "Monday") (if (moment "today" "dddd") "==" "Wednesday") (if (moment "today" "dddd") "==" "Friday")}}
+    <!-- {{#or (if (moment "today" "dddd") "==" "Monday") (if (moment "today" "dddd") "==" "Wednesday") (if (moment "today" "dddd") "==" "Friday")}}
     <div class="banners dark-text" data-banner-location="top">
         <div class="banner">
             <div class="hero desktop" style="background-image: url('https://cdn11.bigcommerce.com/s-40wxilo4jg/images/stencil/original/image-manager/kd-homepagebanner-garrisoncollection.jpg'); background-position: center;">
@@ -125,8 +125,16 @@ categories: true
             </div>
         </div>
     </div>
-    {{/or}}
-        
+    {{/or}} -->
+    <div class="tree-banner">
+        <img src="https://cdn11.bigcommerce.com/s-40wxilo4jg/images/stencil/original/image-manager/kd-homepagebanner-holiday24-mobile.jpg?t=1734020560" alt="" class="tree-banner__img-mobile">
+        <img src="https://cdn11.bigcommerce.com/s-40wxilo4jg/images/stencil/original/image-manager/kd-homepagebanner-holiday24.jpg?t=1734020559" alt="" class="tree-banner__img-desktop">
+        <div class="tree-banner__content-wrap">
+            <h2 class="tree-banner__title">DECK YOUR HALLS… AND CABINETS!</h2>
+            <p class="tree-banner__content">Give your cabinets and furniture a festive refresh this season! Shop stylish knobs, handles, and pulls to create a space that shines brighter than your holiday lights.</p>
+            <!-- <a href="" class="tree-banner__btn btn">Shop Now</a> -->
+        </div>
+    </div>
 </div>
 {{> components/common/home-categories}}
 {{> components/common/home-styles}}
